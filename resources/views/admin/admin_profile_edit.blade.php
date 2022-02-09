@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col">
                         <form action="{{route('admin.profile.store')}}" method="POST" enctype="multipart/form-data">
-                            @csrf 
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
                                     {{-- <div class="form-group">
@@ -32,7 +32,7 @@
                                             <div class="form-group">
                                                 <h5>Admin Username <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="name" class="form-control" required=""
+                                                    <input type="text" name="name" class="form-control"
                                                         data-validation-required-message="This field is required" value="{{$editData->name}}">
                                                     <div class="help-block"></div>
                                                 </div>
@@ -42,7 +42,7 @@
                                             <div class="form-group">
                                                 <h5>Email <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="email" name="email" class="form-control" required=""
+                                                    <input type="email" name="email" class="form-control"
                                                         data-validation-required-message="This field is required" value="{{$editData->email}}">
                                                     <div class="help-block"></div>
                                                 </div>
@@ -54,7 +54,7 @@
                                             <div c+lass="form-group">
                                         <h5>Profile Images <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <input type="file" name="profile_photo_path" class="form-control" required="" id="image">
+                                            <input type="file" name="profile_photo_path" class="form-control" id="image">
                                            
                                         </div>
                                     </div>
@@ -66,8 +66,8 @@
                                     
                                 </div>
                                 <div class="text-xs-right">
-                                    {{-- <button type="submit" class="">Submit</button> --}}
-                                    <input type="button" value="Update" id="click" class="btn btn-rounded btn-info">
+                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    {{-- <input type="button" value="Update" id="click" class="btn btn-rounded btn-info"> --}}
                                 </div>
                             </div>
                         </form>
