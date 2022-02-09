@@ -17,7 +17,8 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col">
-                        <form novalidate="">
+                        <form action="{{route('admin.profile.store')}}" method="POST" enctype="multipart/form-data">
+                            @csrf 
                             <div class="row">
                                 <div class="col-12">
                                     {{-- <div class="form-group">
