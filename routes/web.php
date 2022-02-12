@@ -2,6 +2,8 @@
 
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\Backend\AdminProfileController;
+    use App\Http\Controllers\Frontend\FrontendController;
+    use App\Http\Controllers\Frontend\IndexController;
     use Illuminate\Support\Facades\Route;
     use Laravel\Jetstream\Rules\Role;
     use Illuminate\Support\Facades\Auth;

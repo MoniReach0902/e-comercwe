@@ -12,17 +12,16 @@
     <title>Flipmart premium HTML5 & CSS3 Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}">
 
     <!-- Customizable CSS -->
 
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/blue.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/owl.transitions.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/rateit.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontwnd/assets/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.transitions.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/rateit.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap-select.min.css') }}">
 
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.css') }}">
