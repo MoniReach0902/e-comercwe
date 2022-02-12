@@ -5,6 +5,7 @@
     use Illuminate\Support\Facades\Route;
     use Laravel\Jetstream\Rules\Role;
     use Illuminate\Support\Facades\Auth;
+    use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 
     /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,7 @@
     Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
-    Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
 
 
     // Admin Route
@@ -39,3 +38,10 @@
     Route::post('/admin/profile/store', [AdminProfileController::class, 'adminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/change/password', [AdminProfileController::class, 'adminChangePassword'])->name('admin.change.password');
     Route::post('/update/change/password', [AdminProfileController::class, 'updateChangePassword'])->name('update.change.password');
+
+
+    //User Route
+    Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/', [IndexController::class, 'index']);
