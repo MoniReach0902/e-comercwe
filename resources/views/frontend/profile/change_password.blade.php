@@ -1,5 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
+    {{-- @php
+    $user = DB::table('users')
+        ->where('id', Auth::user()->id)
+        ->first();
+    @endphp --}}
     <div class="body-content">
         <div class="container">
             <div class="row">
@@ -21,34 +26,30 @@
                         <h3 class="text-center">
                             <span class="text-danger">
                                 Hi....{{ Auth::user()->name }}
-                                <strong>Change Password</strong>
+                                <strong>Update Your Profile </strong>
                             </span>
                         </h3>
                         <div class="card-body">
                             <form action="{{ route('user.profile.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="basic_checkbox_1">Name</label>
-                                    <input type="text" id="name" name="name"
+                                    <label for="basic_checkbox_1">Currenr Password</label>
+                                    <input type="password" id="current_password" name="old_password"
                                         class="form-control pl-15 bg-transparent text-white plc-white"
-                                        placeholder="Username " value="{{ $user->name }}">
+                                        placeholder="Username ">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Email</label>
-                                    <input type="text" id="email" name="email"
-                                        class="form-control pl-15 bg-transparent text-white plc-white" placeholderßUsername"
-                                        value="{{ $user->email }}">
+                                    <label for=""> Password</label>
+                                    <input type="password" id="password" name="password"
+                                        class="form-control pl-15 bg-transparent text-white plc-white"
+                                        placeholderßUsername">
                                 </div>
                                 <div class="form-group">
-                                    <label for="basic_checkbox_1">Phone</label>
-                                    <input type="text" id="phone" name="phone"
-                                        class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Phone"
-                                        value="{{ $user->phone }}">
+                                    <label for="basic_checkbox_1">New Password</label>
+                                    <input type="password" id="password_confirmation" name="password_confirmation"
+                                        class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Phone">
                                 </div>
-                                <div class="form-group">
-                                    <label for="basic_checkbox_1">User Profile</label>
-                                    <input type="file" name="profile_photo_path" id="" class="form-control">
-                                </div>
+
                                 <div class="from-gorup">
                                     <button type="submit" class="btn btn-info"> update </button>
                                 </div>

@@ -4,6 +4,7 @@
     use App\Http\Controllers\Backend\AdminProfileController;
     use App\Http\Controllers\Frontend\FrontendController;
     use App\Http\Controllers\Frontend\IndexController;
+    use App\Models\User;
     use Illuminate\Support\Facades\Route;
     use Laravel\Jetstream\Rules\Role;
     use Illuminate\Support\Facades\Auth;
@@ -44,8 +45,12 @@
 
     //User Route
     Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
-        return view('dashboard');
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        return view('dashboard', compact('user'));
     })->name('dashboard');
     Route::get('/', [IndexController::class, 'index']);
     Route::get('/user/logout', [IndexController::class, 'userLogout'])->name('user.logout');
     Route::get('/user/profile', [IndexController::class, 'userProfile'])->name('user.profile');
+    Route::post('/user/profile/store', [IndexController::class, 'userProfileStore'])->name('user.profile.store');
+    Route::get('/change/password', [IndexController::class, 'userChangePassword'])->name('change.password');

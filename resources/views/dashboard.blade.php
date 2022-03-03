@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <img src="{{ !empty($editData->profile_photo_path)? url('upload/admin_images/' . $editData->profile_photo_path): url('uploads/no-images.jpg') }}"
+                    <img src="{{ !empty($user->profile_photo_path)? url('uploads/user_images/' . $user->profile_photo_path): url('uploads/no-images.jpg') }}"
                         alt="" class="card-img-top" style="border-radius: 50%" height="100%" width="100%">
                     <br><br>
                     <ul class="list-group list-group-flush">
