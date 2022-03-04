@@ -30,24 +30,25 @@
                             </span>
                         </h3>
                         <div class="card-body">
-                            <form action="{{ route('user.profile.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('user.password.update') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="basic_checkbox_1">Currenr Password</label>
                                     <input type="password" id="current_password" name="old_password"
                                         class="form-control pl-15 bg-transparent text-white plc-white"
-                                        placeholder="Username ">
+                                        placeholder="current password ">
                                 </div>
                                 <div class="form-group">
                                     <label for=""> Password</label>
                                     <input type="password" id="password" name="password"
                                         class="form-control pl-15 bg-transparent text-white plc-white"
-                                        placeholderßUsername">
+                                        placeholder="password">
                                 </div>
                                 <div class="form-group">
-                                    <label for="basic_checkbox_1">New Password</label>
+                                    <label for="basic_checkbox_1">Confrim Password</label>
                                     <input type="password" id="password_confirmation" name="password_confirmation"
-                                        class="form-control pl-15 bg-transparent text-white plc-white" placeholder="Phone">
+                                        class="form-control pl-15 bg-transparent text-white plc-white"
+                                        placeholder="confrim password">
                                 </div>
 
                                 <div class="from-gorup">
