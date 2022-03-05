@@ -47,13 +47,21 @@
 
                                 </div>
                             </div>
-                    </div>
-                    <div class="text-xs-right">
-                        <button type="submit" class="btn btn-info">Submit</button>
-                        {{-- <input type="button" value="Update" id="click" class="btn btn-rounded btn-info"> --}}
-                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="text-xs-right">
+                                        <button type="submit" class="btn btn-info">Submit</button>
+                                        {{-- <input type="button" value="Update" id="click" class="btn btn-rounded btn-info"> --}}
+                                    </div>
 
-                    </form>
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+                    </div>
 
                 </div>
 
@@ -69,5 +77,4 @@
     </section>
     <!-- /.content -->
     </div>
-
 @endsection

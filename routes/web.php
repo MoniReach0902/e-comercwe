@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\AdminController;
     use App\Http\Controllers\Backend\AdminProfileController;
+    use App\Http\Controllers\Backend\BrandController;
     use App\Http\Controllers\Frontend\FrontendController;
     use App\Http\Controllers\Frontend\IndexController;
     use App\Models\User;
@@ -43,7 +44,7 @@
     Route::post('/update/change/password', [AdminProfileController::class, 'updateChangePassword'])->name('update.change.password');
 
 
-    //User Route
+    //User Route 
     Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
         $id = Auth::user()->id;
         $user = User::find($id);
@@ -55,3 +56,9 @@
     Route::post('/user/profile/store', [IndexController::class, 'userProfileStore'])->name('user.profile.store');
     Route::get('/change/password', [IndexController::class, 'userChangePassword'])->name('change.password');
     Route::post('user/password/update', [IndexController::class, 'userPasswordUpdate'])->name('user.password.update');
+
+    // Admin brand route
+    Route::prefix('brand')->group(function () {
+        Route::get('/view', [BrandController::class, 'brandView'])->name('all.brands');
+        Route::post('/store', [BrandController::class, 'brandStore'])->name('brand.store');
+    });
