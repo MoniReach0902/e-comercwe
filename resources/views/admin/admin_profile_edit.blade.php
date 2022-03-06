@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <div class="container-full">
 
         <!-- Main content -->
@@ -17,7 +17,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col">
-                        <form action="{{route('admin.profile.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.profile.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -33,7 +33,8 @@
                                                 <h5>Admin Username <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="name" class="form-control"
-                                                        data-validation-required-message="This field is required" value="{{$editData->name}}">
+                                                        data-validation-required-message="This field is required"
+                                                        value="{{ $editData->name }}">
                                                     <div class="help-block"></div>
                                                 </div>
                                             </div>
@@ -43,7 +44,8 @@
                                                 <h5>Email <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="email" name="email" class="form-control"
-                                                        data-validation-required-message="This field is required" value="{{$editData->email}}">
+                                                        data-validation-required-message="This field is required"
+                                                        value="{{ $editData->email }}">
                                                     <div class="help-block"></div>
                                                 </div>
                                             </div>
@@ -52,28 +54,31 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div c+lass="form-group">
-                                        <h5>Profile Images <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="file" name="profile_photo_path" class="form-control" id="image">
-                                           
-                                        </div>
-                                    </div>
+                                                <h5>Profile Images <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="profile_photo_path" class="form-control"
+                                                        id="image">
+
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <img id="showImage" src="{{!empty($editData->profile_photo_path)? url('upload/admin_images/'.$editData->profile_photo_path):url('uploads/no-images.jpg')}}" alt="" style="width: 100px;height: 100x;">
+                                            <img id="showImage"
+                                                src="{{ !empty($editData->profile_photo_path)? url('uploads/admin_images/' . $editData->profile_photo_path): url('uploads/no-images.jpg') }}"
+                                                alt="" style="width: 100px;height: 100x;">
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="text-xs-right">
-                                    <button type="submit" class="btn btn-info">Submit</button>
-                                    {{-- <input type="button" value="Update" id="click" class="btn btn-rounded btn-info"> --}}
+                                    {{-- <button type="submit" class="btn btn-info">Submit</button> --}}
+                                    <input type="submit" value="Update" id="click" class="btn btn-rounded btn-info">
                                 </div>
                             </div>
                         </form>
 
                     </div>
-                   
+
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
@@ -87,17 +92,16 @@
         <!-- /.content -->
     </div>
     <script>
-         $(document).ready(function(){
-            $('#image').change(function(e){
-                var reader=new FileReader();
-                reader.onload=function(e){
-                    $('#showImage').attr('src',e.target.result);
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(e.target.files['0']);
             });
-          
+
         });
-      
     </script>
     <script type></script>
 @endsection
