@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class BrandController extends Controller
 {
@@ -81,5 +83,20 @@ class BrandController extends Controller
             );
             return redirect()->route('all.brands')->with($notification);
         }
+    }
+    public function brandDelete($id)
+    {
+        // alert()->question('QuestionAlert', 'Lorem ipsum dolor sit amet.');
+        // $a = Alert::question('Question Title', 'Question Message');
+
+        $brand = Brand::findOrFail($id);
+        $img = $brand->brand_image;
+        unlink($img);
+        Brand::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'Brand Delete Successfuly',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('all.brands')->with($notification);
     }
 }

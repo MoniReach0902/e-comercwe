@@ -21,14 +21,15 @@
     <link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">
     {{-- Toast load --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-    {{-- sweet alert --}}
-    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+
 
 </head>
 
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
 
     <div class="wrapper">
+        @include('sweetalert::alert')
+
 
         @include('admin.body.header')
 
@@ -69,14 +70,10 @@
 
 
 </body>
-{{-- sweet alert --}}
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js">
-    {{-- toast --}}
-        <
-        script src = "https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-    integrity = "sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-    crossorigin = "anonymous"
-    referrerpolicy = "no-referrer" >
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+crossorigin="anonymous" referrerpolicy="no-referrer">
 </script>
 <script>
     @if (Session::has('message'))
@@ -99,29 +96,34 @@
     @endif
 </script>
 
-<script>
-    $(document).ready(function() {
-        $(document).on('click', '#delete', function(e) {
-            e.preventDefault();
-            var link = $(this).attr("href");
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "to delete ",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
-                }
-            })
-        });
+
+{{-- sweet alert --}}
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+    $(document).on('click', '#delete', function(e) {
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success',
+
+                );
+
+            }
+        })
     });
 </script>
 
