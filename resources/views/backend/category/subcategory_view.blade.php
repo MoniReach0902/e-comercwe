@@ -24,25 +24,23 @@
                                 <tbody>
                                     @foreach ($subcategory as $item)
                                         <tr>
-                                            <td>{{ $item->category_id }}</td>
+                                            <td>{{ $item['category']['category_name_en'] }}</td>
                                             <td>{{ $item->subcategory_name_en }}</td>
                                             <td>{{ $item->subcategory_name_kh }}</td>
-
-
                                             <td>
-                                                <a href="{{ route('category.edit', $item->id) }}" class="btn btn-info"
+                                                <a href="{{ route('subcategory.edit', $item->id) }}" class="btn btn-info"
                                                     id="edit">Edit</a>
-                                                <a href="{{ route('category.delete', $item->id) }}" class="btn btn-danger"
-                                                    id="delete">Delete </a>
+                                                <a href="{{ route('subcategory.delete', $item->id) }}"
+                                                    class="btn btn-danger" id="delete">Delete </a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Brand En</th>
-                                        <th>Brand Kh</th>
-                                        <th>Icon</th>
+                                        <th>Category </th>
+                                        <th>Sub Category En</th>
+                                        <th>Sub Categorynd Kh</th>
                                         <th>Action </th>
                                     </tr>
                                 </tfoot>
@@ -67,15 +65,22 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="col">
-                            <form action="{{ route('category.store') }}" method="POST">
+                            <form action="{{ route('subcategory.store') }}" method="POST">
                                 @csrf
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <h5> Category Name <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="select" id="" class="form-control">
-
+                                            <select name="category_id" id="" class="form-control">
+                                                <option value="" selected="" disabled="">Select Category</option>
+                                                @foreach ($category as $data)
+                                                    <option value="{{ $data->id }}">{{ $data->category_name_en }}
+                                                    </option>
+                                                @endforeach
                                             </select>
+                                            @error('category_id')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -85,7 +90,7 @@
                                         <div class="controls">
                                             <input type="text" name="subcategory_name_en" class="form-control" id=""
                                                 placeholder="">
-                                            @error('category_name_en')
+                                            @error('subcategory_name_en')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
@@ -97,7 +102,7 @@
                                         <div class="controls">
                                             <input type="text" name="subcategory_name_kh" class="form-control" id=""
                                                 placeholder="">
-                                            @error('category_name_kh')
+                                            @error('subcategory_name_kh')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
