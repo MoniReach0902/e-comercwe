@@ -130,7 +130,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer">
                         'Your file has been deleted.',
                         'success',
                     );
-                    window.location.href = link
+                    setInterval(() => {
+                        window.location.href = link;
+                    }, 1000);
 
                 }
             })
